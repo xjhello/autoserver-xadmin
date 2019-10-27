@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="/static/bs/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="/static/bstable/src/extensions/editable/bootstrap-editable.css">
+    <link rel="stylesheet" href="/static/bstable/dist/bootstrap-table.css">
+</head>
+<body>
+
+<h2>服务器列表管理</h2>
+
+<table id="server">
+
+</table>
+
+</body>
+
+<script src="/static/js/jquery-1.12.4.js"></script>
+
+
+<script src="/static/js/nblist.js"></script>
+<script>
+    $.ajax({
+        type: 'get',
+        url: '/backend/ajax_server/',
+        success:function(args){
+            console.log(args);
+            init_thead(args['table_config']);
+            init_tbody(args['data_list'], args['table_config'])
+        }
+    });
+
+
+
+</script>
+
+
+</html>
